@@ -10,6 +10,9 @@ import { ThemedView } from '@/components/ThemedView';
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native'
 import { ScrollView } from 'react-native-gesture-handler';
+import { WebView } from 'react-native-webview'
+
+import Constants from 'expo-constants';
 
 import { useState, useCallback } from 'react'
 
@@ -19,6 +22,8 @@ type RootStackParamList = {
 };
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+const tellerConnect = require('../TellerConnect/TellerConnect.html')
 
 export default function HomeScreen() {
   const navigation = useNavigation<HomeScreenNavigationProp>();
@@ -31,13 +36,9 @@ export default function HomeScreen() {
   }
 
   return (
-    <ScrollView>
-        <SafeAreaView>
-            <Text style={{color: 'white'}}>
-                Uhhhhhhhh, where is everything
-            </Text>
-        </SafeAreaView>
-    </ScrollView>
+            <WebView
+            style={styles.container}
+            source={ tellerConnect }/>
   );
 }
 
@@ -47,5 +48,9 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 12,
-  }
+  },
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
 });
