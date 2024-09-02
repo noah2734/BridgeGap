@@ -2,7 +2,6 @@
   <head></head>
   <body>
     <!-- When element is clicked, Teller Connect will open -->
-    <button id="teller-connect">Connect to your bank</button>
 
     <!-- Body of your page... -->
 
@@ -19,17 +18,18 @@
           // Part 3. Handle a successful enrollment's accessToken
           onSuccess: function(enrollment) {
             console.log("User enrolled successfully", enrollment.accessToken);
+           window.ReactNativeWebView.postMessage(enrollment.accessToken);
           },
           onExit: function() {
             console.log("User closed Teller Connect");
           }
         });
-
+        tellerConnect.open();
         // Part 4. Hook user actions to start Teller Connect
-        var el = document.getElementById("teller-connect");
+        /*var el = document.getElementById("teller-connect");
         el.addEventListener("click", function() {
           tellerConnect.open();
-        });
+        });*/
       });
     </script>
   </body>

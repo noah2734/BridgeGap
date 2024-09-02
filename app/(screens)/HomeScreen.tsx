@@ -18,27 +18,18 @@ import { useState, useCallback } from 'react'
 
 type RootStackParamList = {
   Home: undefined;
-  TodoList: undefined;
+  TellerConnect: undefined;
 };
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
-const tellerConnect = require('../TellerConnect/TellerConnect.html')
+//const tellerConnect = require('../TellerConnect/TellerConnect.html')
 
 export default function HomeScreen() {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
-  const [text1, onChangeText1] = useState('');
-  const [text2, onChangeText2] = useState('');
-
-  const onSubmit = () => {
-    // Send data to plaid api for authorization
-  }
-
   return (
-            <WebView
-            style={styles.container}
-            source={ tellerConnect }/>
+            <Button title={'Connect Bank'} onPress={() => navigation.navigate('TellerConnect')}/>
   );
 }
 
