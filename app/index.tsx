@@ -11,7 +11,7 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native'
 
 import React from 'react';
-import AppNavigator from '../AppNavigator';
+import AppNavigator from './AppNavigator';
 
 export default function App() {
   return <AppNavigator />;
