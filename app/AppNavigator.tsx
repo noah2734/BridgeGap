@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
     return (
         <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Home" component={HomeScreen}/>
             <Stack.Screen name="TellerConnect" component={TellerConnectScreen} />
         </Stack.Navigator>
     );
